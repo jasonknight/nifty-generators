@@ -1,5 +1,4 @@
 require 'rails/generators/base'
-
 module Nifty
   module Generators
     class Base < Rails::Generators::Base #:nodoc:

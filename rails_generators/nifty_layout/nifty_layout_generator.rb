@@ -32,13 +32,15 @@ class NiftyLayoutGenerator < Rails::Generator::Base
   protected
 
     def add_options!(opt)
+      puts "Called with" + opt.inspect
       opt.separator ''
       opt.separator 'Options:'
       opt.on("--haml", "Generate HAML for view, and SASS for stylesheet.") { |v| options[:haml] = v }
+      opt.on("--sass", "Generate SASS for stylesheet for erb.") { |v| options[:sass] = v }
     end
 
     def banner
-      <<-EOS
+<<-EOS
 Creates generic layout, stylesheet, and helper files.
 
 USAGE: #{$0} #{spec.name} [layout_name]
