@@ -2,6 +2,10 @@
 
 A collection of useful Rails generator scripts for scaffolding, layout files, authentication, and more.
 
+=== Deviations and additions in this repo
+
+
+
 
 == Setup
 

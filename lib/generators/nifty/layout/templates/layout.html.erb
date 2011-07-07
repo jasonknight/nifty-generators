@@ -7,13 +7,19 @@
     <%%= csrf_meta_tag %>
     <%%= yield(:head) %>
   </head>
-  <body>
-    <div id="container">
-      <%% flash.each do |name, msg| %>
-        <%%= content_tag :div, msg, :id => "flash_#{name}" %>
+  <body id="<%= file_name %>">
+    <div id="main_container" class="main-container">
+      <%% if flash.any? then %>
+        <div class="general-container notice hidden">
+          <%% flash.each do |name, msg| %>
+            <%%= content_tag :div, msg, :id => "flash_#{name}" %>
+          <%% end %>
+        </div>
       <%% end %>
       <%%= content_tag :h1, yield(:title) if show_title? %>
-      <%%= yield %>
-    </div>
+      <div class="container-<%%= params[:controller] + '-' + params[:action] %>">
+        <%%= yield %> 
+      </div> <!-- end container-<%%= params[:controller] + '-' + params[:action] %> -->
+    </div> <!-- end main-container -->
   </body>
 </html>
